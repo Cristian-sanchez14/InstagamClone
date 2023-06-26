@@ -1,149 +1,49 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {StyleSheet, View, Image, Text} from 'react-native';
-import colors from './src/theme/colors';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import Entypo from 'react-native-vector-icons/Entypo';
-import fonts from './src/theme/fonts';
-import Feather from 'react-native-vector-icons/Feather';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {StyleSheet, ScrollView} from 'react-native';
+import FeedPost from './src/components/FeedPost.Component';
+
+const post = {
+  id: '1',
+  createdAt: '19 December 2021',
+  image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
+  description:
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis. Eos fugiat dolorem ea fugit aut sapiente corrupti autem dolores deleniti architecto, omnis, amet unde dignissimos quam minima?',
+  user: {
+    image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg',
+    username: 'vadimnotjustdev',
+  },
+  nofComments: 11,
+  nofLikes: 33,
+  comments: [
+    {
+      id: '1',
+      comment: 'Hello there, I like your post',
+      user: {
+        username: 'vadimnotjustdev',
+      },
+    },
+    {
+      id: '2',
+      comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. H',
+      user: {
+        username: 'vadimnotjustdev',
+      },
+    },
+  ],
+};
 
 const App = () => {
   return (
-    <View style={styles.post}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Image
-          source={{
-            uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/1.jpg',
-          }}
-          style={styles.userAvatar}
-        />
-        <Text style={styles.userName}>CristianSanchez</Text>
-        <Entypo
-          name="dots-three-horizontal"
-          size={16}
-          style={styles.threeDots}
-        />
-      </View>
-      {/* Content */}
-      <Image
-        source={{
-          uri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg',
-        }}
-        style={styles.image}
-      />
-      {/* Footer  */}
-      <View style={styles.footer}>
-        <View style={styles.iconContainer}>
-          <AntDesign
-            name={'hearto'}
-            size={24}
-            style={styles.icon}
-            color={colors.black}
-          />
-          <Ionicons
-            name="chatbubble-outline"
-            size={24}
-            style={styles.icon}
-            color={colors.black}
-          />
-          <Feather
-            name="send"
-            size={24}
-            style={styles.icon}
-            color={colors.black}
-          />
-          <Feather
-            name="bookmark"
-            size={24}
-            style={{marginLeft: 'auto'}}
-            color={colors.black}
-          />
-        </View>
-
-        <Text style={styles.text}>
-          Liked by <Text style={styles.bold}>lshdfjksdu</Text> and{' '}
-          <Text style={styles.bold}>66</Text> others
-        </Text>
-
-        {/* Post description */}
-        <Text style={styles.text}>
-          <Text style={styles.bold}>cristiansanchezdev</Text> Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Quae dignissimos ex impedit
-          veniam nesciunt iste accusamus molestiae ut consequatur velit enim,
-          voluptate voluptas officiis eaque pariatur error doloremque soluta? A!
-        </Text>
-
-        {/* Comments */}
-        <Text>View all 16 comments</Text>
-        <View style={styles.comment}>
-          <Text style={styles.commentText}>
-            <Text style={styles.bold}>cristiansanchezdev</Text> Lorem ipsum
-            dolor sit amet consectetur adipisicing elit.
-          </Text>
-          <AntDesign name={'hearto'} style={styles.icon} color={colors.black} />
-        </View>
-
-        {/* Posted date */}
-        <Text>19 Decmeber, 2021</Text>
-      </View>
-    </View>
+    <ScrollView style={styles.app}>
+      <FeedPost post={post} />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  post: {
+  app: {
     flex: 1,
-    justifyContent: 'center',
-  },
-  image: {
-    width: '100%',
-    aspectRatio: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-  },
-  userAvatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    marginRight: 10,
-  },
-  userName: {
-    fontWeight: fonts.weight.bold,
-    color: colors.black,
-  },
-  threeDots: {
-    marginLeft: 'auto',
-  },
-  footer: {
-    padding: 10,
-  },
-  iconContainer: {
-    flexDirection: 'row',
-    marginBottom: 5,
-  },
-  icon: {
-    marginHorizontal: 5,
-  },
-  text: {
-    color: colors.black,
-    lineHeight: 18,
-  },
-  bold: {
-    fontWeight: fonts.weight.bold,
-  },
-  commentText: {
-    color: colors.black,
-    flex: 1,
-    lineHeight: 18,
-  },
-  comment: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 5,
+    paddingTop: 35,
   },
 });
 
