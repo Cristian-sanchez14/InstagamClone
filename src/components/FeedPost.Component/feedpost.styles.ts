@@ -2,11 +2,8 @@ import {StyleSheet} from 'react-native';
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
 
-const styles = StyleSheet.create({
-  post: {
-    flex: 1,
-    justifyContent: 'center',
-  },
+export default StyleSheet.create({
+  post: {},
   image: {
     width: '100%',
     aspectRatio: 1,
@@ -26,8 +23,8 @@ const styles = StyleSheet.create({
     fontWeight: fonts.weight.bold,
     color: colors.black,
   },
-  threeDots: {
-    marginLeft: 'auto',
+  location: {
+    color: colors.grey,
   },
   footer: {
     padding: 10,
@@ -46,16 +43,7 @@ const styles = StyleSheet.create({
   bold: {
     fontWeight: fonts.weight.bold,
   },
-  commentText: {
-    color: colors.black,
-    flex: 1,
-    lineHeight: 18,
-  },
-  comment: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 5,
+  threeDots: {
+    marginLeft: 'auto',
   },
 });
-
-export default styles;

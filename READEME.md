@@ -6,3 +6,4 @@
 - ios Fonts list https://github.com/oblador/react-native-vector-icons#option-manually
 - Andriod apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 - after set up reinstall npx pod-install ios
+- npm start -- --reset-cache
